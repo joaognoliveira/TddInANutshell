@@ -66,5 +66,23 @@ public class JankenponTest {
         String matchOutcome = jankenpon.match(player, adversary);
         Assert.assertEquals("Paper", matchOutcome);
     }
+    
+    @Test
+    public void testPaperScissorsMatch(){
+        Jankenpon jankenpon = new Jankenpon();
+
+        String player = "Paper", adversary = "Scissors";
+        String matchOutcome = jankenpon.match(player, adversary);
+        Assert.assertEquals("Scissors", matchOutcome);
+    }
+
+    @Test
+    public void testScissorsRockMatch(){
+        Jankenpon jankenpon = new Jankenpon();
+
+        String player = "Scissors", adversary = "Rock";
+        String matchOutcome = jankenpon.match(player, adversary);
+        Assert.assertEquals("Rock", matchOutcome);
+    }
 
 }
