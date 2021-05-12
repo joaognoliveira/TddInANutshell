@@ -1,29 +1,25 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Jankenpon {
 
+    public class Match {
+        String[] match = {"Rock,Paper", "Rock,Scissors",
+                            "Paper,Scissors", "Paper,Rock",
+                            "Scissors,Paper", "Scissors,Rock"},                 
+                 outcome = {"Paper", "Rock",
+                            "Scissors", "Paper",
+                            "Scissors", "Rock"};
+        List<String> matches_list = Arrays.asList(match);
+        List<String> outcomes_list = Arrays.asList(outcome);
+    }
+
     public String match(String player, String adversary){
-        if (player== "Rock" && adversary == "Paper"){
-            return "Paper";
+        Match match = new Match();
+        String currentMatch = player + "," + adversary;
+        if (match.matches_list.contains(currentMatch)){
+            return match.outcomes_list.get(match.matches_list.indexOf(currentMatch));
         }
-        else if (player== "Rock" && adversary == "Scissors"){
-            return "Rock";
-        }
-        else if (player== "Paper" && adversary == "Scissors"){
-            return "Scissors";
-        }
-        else if (player== "Paper" && adversary == "Rock"){
-            return "Paper";
-        }
-        else if (player== "Scissors" && adversary == "Paper"){
-            return "Scissors";
-        }
-        else if (player== "Scissors" && adversary == "Rock"){
-            return "Rock";
-        }
-        else if (player == adversary){
-            return "Draw";
-        }
-        else {
-            return "Error";
-        }
+        else return "Draw";
     }
 }
