@@ -13,4 +13,13 @@ public class JankenponTest {
         Assert.assertEquals("Paper", matchOutcome);
     }
 
+    @Test
+    public void testDraw(){
+        Jankenpon jankenpon = new Jankenpon();
+
+        String player = "Rock", adversary = "Rock";
+        String matchOutcome = jankenpon.match(player, adversary);
+        Assert.assertEquals("Draw", matchOutcome);
+    }
+
 }
